@@ -10,12 +10,14 @@ source:
   sha256: 209b5943d393925e1a6ecb6734e7507b8f6add25e72a605b25d0d0d382e64fd4
 
 build:
-  number: 0
+  number: 1000
   skip: true  # [win and vc<14]
 
 requirements:
   build:
+    - {{ compiler('cxx') }}
     - cmake
+    - make  # [unix]
 
 test:
   commands:
