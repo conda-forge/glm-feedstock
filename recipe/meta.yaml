@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/g-truc/glm/releases/download/{{ version }}/glm-{{ version }}.zip
-  sha256: 8ec5069b61da07bdaf7098881ff0628c4cf7c3a42292f5a27e35aa9e1502dd17
+  sha256: 9db7339c3b8766184419cfe7942d668fecabe9013ccfec8136b39e11718817d0
 
 build:
   number: 0
