@@ -1,5 +1,5 @@
 {% set name = "GLM" %}
-{% set version = "0.9.9.5" %}
+{% set version = "0.9.9.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/g-truc/glm/releases/download/{{ version }}/glm-{{ version }}.zip
-  sha256: 4360e9e723269f7ecd5b729104f1e386a522b92385f3ba40af2f725ae69bcd75
+  sha256: 53f9a11cb4f09839c4311acf9b0c0030b71501105b7c4c8f51283881b19ec8f4
 
 build:
   number: 0
