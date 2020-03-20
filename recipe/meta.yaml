@@ -1,5 +1,5 @@
 {% set name = "GLM" %}
-{% set version = "0.9.9.5" %}
+{% set version = "0.9.9.4" %}
 
 package:
   name: {{ name|lower }}
