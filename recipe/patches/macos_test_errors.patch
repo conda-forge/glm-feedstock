@@ -1,0 +1,24 @@
+From 3211722dd24bd3a1e10addb8e6df8522b73dd7f5 Mon Sep 17 00:00:00 2001
+From: Liam Wang <5054950+wangl5@users.noreply.github.com>
+Date: Wed, 29 Jun 2022 21:01:58 -0400
+Subject: [PATCH] Disable warnings as errors
+
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 10bb1af..2d31596 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -211,6 +211,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+ 	endif()
+ 
+ 	add_compile_options(-Werror -Weverything)
++	add_compile_options(-Wno-error=implicit-int-conversion -Wno-error=implicit-int-float-conversion -Wno-error=unused-but-set-variable)
+ 	add_compile_options(-Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-c++11-long-long -Wno-padded -Wno-gnu-anonymous-struct -Wno-nested-anon-types)
+ 	add_compile_options(-Wno-undefined-reinterpret-cast -Wno-sign-conversion -Wno-unused-variable -Wno-missing-prototypes -Wno-unreachable-code -Wno-missing-variable-declarations -Wno-sign-compare -Wno-global-constructors -Wno-unused-macros -Wno-format-nonliteral)
+ 
+-- 
+2.32.1 (Apple Git-133)
+

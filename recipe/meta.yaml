@@ -8,9 +8,11 @@ package:
 source:
   url: https://github.com/g-truc/glm/releases/download/{{ version }}/glm-{{ version }}.zip
   sha256: 972b8c319ff1b96eeac19c63563176f138527ebf6fa5110b8eac5fe23f5e7d9f
+  patches:
+    - patches/macos_test_errors.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
 
 requirements:
