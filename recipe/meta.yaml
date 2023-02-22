@@ -10,6 +10,7 @@ source:
   sha256: 37e2a3d62ea3322e43593c34bae29f57e3e251ea89f4067506c94043769ade4c
   patches:
     - patches/macos_test_errors.patch
+    - patches/cmake_install_target.patch
 
 build:
   number: 0
