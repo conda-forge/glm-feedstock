@@ -1,11 +1,11 @@
-About glm
-=========
+About glm-feedstock
+===================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/glm-feedstock/blob/main/LICENSE.txt)
 
 Home: https://glm.g-truc.net
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/glm-feedstock/blob/main/LICENSE.txt)
 
 Summary: OpenGL Mathematics
 
@@ -186,4 +186,5 @@ Feedstock Maintainers
 =====================
 
 * [@mcs07](https://github.com/mcs07/)
+* [@traversaro](https://github.com/traversaro/)
 
