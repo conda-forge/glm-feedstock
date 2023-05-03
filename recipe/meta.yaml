@@ -1,5 +1,5 @@
 {% set name = "GLM" %}
-{% set version = "0.9.9.4" %}
+{% set version = "0.9.9.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,13 @@ package:
 
 source:
   url: https://github.com/g-truc/glm/releases/download/{{ version }}/glm-{{ version }}.zip
-  sha256: 972b8c319ff1b96eeac19c63563176f138527ebf6fa5110b8eac5fe23f5e7d9f
+  sha256: 37e2a3d62ea3322e43593c34bae29f57e3e251ea89f4067506c94043769ade4c
   patches:
     - patches/macos_test_errors.patch
+    - patches/cmake_install_target.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win and vc<14]
 
 requirements:
@@ -37,3 +38,4 @@ about:
 extra:
   recipe-maintainers:
     - mcs07
+    - traversaro
