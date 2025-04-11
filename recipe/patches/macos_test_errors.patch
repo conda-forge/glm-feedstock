@@ -1,13 +1,26 @@
 diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
-index e7f85f19f..e67a448f2 100644
+index 4ed1403f..8673ed00 100644
 --- a/test/CMakeLists.txt
 +++ b/test/CMakeLists.txt
-@@ -197,7 +197,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+@@ -10,9 +10,9 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
  		message("GLM: Clang - ${CMAKE_CXX_COMPILER_ID} compiler")
  	endif()
  
--	add_compile_options(-Werror -Weverything)
-+	#add_compile_options(-Werror -Weverything)
- 	add_compile_options(-Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-c++11-long-long -Wno-padded -Wno-gnu-anonymous-struct -Wno-nested-anon-types)
- 	add_compile_options(-Wno-undefined-reinterpret-cast -Wno-sign-conversion -Wno-unused-variable -Wno-missing-prototypes -Wno-unreachable-code -Wno-missing-variable-declarations -Wno-sign-compare -Wno-global-constructors -Wno-unused-macros -Wno-format-nonliteral)
+-	if(NOT GLM_DISABLE_AUTO_DETECTION)
+-		add_compile_options(-Werror -Weverything)
+-	endif()
++	# if(NOT GLM_DISABLE_AUTO_DETECTION)
++	# 	add_compile_options(-Werror -Weverything)
++	# endif()
  
+ elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+ 	if(NOT GLM_QUIET)
+@@ -20,7 +20,7 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+ 	endif()
+ 
+ 	if(NOT GLM_DISABLE_AUTO_DETECTION)
+-		add_compile_options(-Werror)
++#		add_compile_options(-Werror)
+ #		add_compile_options(-Wpedantic)
+ #		add_compile_options(-Wall)
+ #		add_compile_options(-Wextra)
