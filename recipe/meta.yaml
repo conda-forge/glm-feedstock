@@ -28,6 +28,11 @@ test:
   commands:
     - test -r "${PREFIX}/include/glm"  # [unix]
     - if not exist %LIBRARY_INC%\glm exit 1  # [win]
+    - cmake-package-check glm --targets glm::glm
+  requires:
+    - cmake-package-check
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
 
 about:
   home: https://glm.g-truc.net
