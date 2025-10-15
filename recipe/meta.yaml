@@ -1,5 +1,5 @@
 {% set name = "GLM" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/g-truc/glm/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 9f3174561fd26904b23f0db5e560971cbf9b3cbda0b280f04d5c379d03bf234c
-  
+  sha256: f972c5f02cd9fff4d76351268d5ea62518c8972e1e9de5d1dd4910261b50ef54
+
   patches:
-     - patches/macos_test_errors.patch
+    - patches/macos_test_errors.patch
 
 build:
   number: 0
