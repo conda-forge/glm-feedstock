@@ -10,11 +10,15 @@ source:
   sha256: 6775e47231a446fd086d660ecc18bcd076531cfedd912fbd66e576b118607001
 
   patches:
-    - patches/macos_test_errors.patch
+    # Upstream enables warnings-as-errors in its tests, which breaks as
+    # compilers add diagnostics. Remove once this can be disabled separately.
+    - patches/disable_warnings_as_errors.patch
 
 build:
   number: 0
   skip: true  # [win and vc<14]
+  run_exports:
+    - {{ pin_subpackage("glm", max_pin="x.x") }}
 
 requirements:
   build:
@@ -24,12 +28,25 @@ requirements:
     - make  # [unix]
 
 test:
+  files:
+    - test/CMakeLists.txt
+    - test/main.cpp
   commands:
     - test -r "${PREFIX}/include/glm"  # [unix]
     - if not exist %LIBRARY_INC%\glm exit 1  # [win]
-    - cmake-package-check glm --targets glm::glm
+    - test -f "${PREFIX}/lib/libglm.so"  # [linux]
+    - test -f "${PREFIX}/lib/libglm.dylib"  # [osx]
+    - test ! -f "${PREFIX}/lib/libglm.a"  # [unix]
+    - if not exist %LIBRARY_BIN%\glm.dll exit 1  # [win]
+    - cmake-package-check glm --targets glm::glm glm::glm-header-only
+    - cmake -S test -B test-build -G Ninja
+    - cmake --build test-build
+    - test-build/glm-test  # [unix]
+    - test-build\glm-test.exe  # [win]
   requires:
+    - cmake
     - cmake-package-check
+    - ninja
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
