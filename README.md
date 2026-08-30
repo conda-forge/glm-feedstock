@@ -3,7 +3,7 @@ About glm-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/glm-feedstock/blob/main/LICENSE.txt)
 
-Home: https://glm.g-truc.net
+Home: https://glm.g-truc.net/
 
 Package license: MIT
 
