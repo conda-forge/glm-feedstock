@@ -1,0 +1,74 @@
+schema_version: 1
+
+context:
+  name: GLM
+  version: "1.0.3"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/g-truc/glm/archive/refs/tags/${{ version }}.tar.gz
+  sha256: 6775e47231a446fd086d660ecc18bcd076531cfedd912fbd66e576b118607001
+  patches:
+    # Upstream enables warnings-as-errors in its tests, which breaks as
+    # compilers add diagnostics. Remove once this can be disabled separately.
+    - patches/disable_warnings_as_errors.patch
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+    - cmake
+    - if: unix
+      then: make
+  run_exports:
+    - ${{ pin_subpackage("glm", upper_bound="x.x") }}
+
+tests:
+  - files:
+      recipe:
+        - test/CMakeLists.txt
+        - test/main.cpp
+    requirements:
+      run:
+        - cmake
+        - cmake-package-check
+        - ninja
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+    script:
+      - if: unix
+        then: test -r "${PREFIX}/include/glm"
+      - if: win
+        then: if not exist %LIBRARY_INC%\glm exit 1
+      - if: linux
+        then: test -f "${PREFIX}/lib/libglm.so"
+      - if: osx
+        then: test -f "${PREFIX}/lib/libglm.dylib"
+      - if: unix
+        then: test ! -f "${PREFIX}/lib/libglm.a"
+      - if: win
+        then: if not exist %LIBRARY_BIN%\glm.dll exit 1
+      - cmake-package-check glm --targets glm::glm glm::glm-header-only
+      - cmake -S test -B test-build -G Ninja
+      - cmake --build test-build
+      - if: unix
+        then: test-build/glm-test
+      - if: win
+        then: test-build\glm-test.exe
+
+about:
+  license: MIT
+  license_file: manual.md
+  summary: OpenGL Mathematics
+  homepage: https://glm.g-truc.net
+  repository: https://github.com/g-truc/glm
+
+extra:
+  recipe-maintainers:
+    - traversaro

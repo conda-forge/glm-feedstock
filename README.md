@@ -3,7 +3,7 @@ About glm-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/glm-feedstock/blob/main/LICENSE.txt)
 
-Home: https://glm.g-truc.net
+Home: https://glm.g-truc.net/
 
 Package license: MIT
 
@@ -40,6 +40,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2581&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/glm-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2581&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/glm-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr>
