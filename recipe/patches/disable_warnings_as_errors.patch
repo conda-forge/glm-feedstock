@@ -1,5 +1,5 @@
 diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
-index c250a780..3db98f3e 100644
+index c250a78..52c45b5 100644
 --- a/test/CMakeLists.txt
 +++ b/test/CMakeLists.txt
 @@ -23,7 +23,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -19,3 +19,12 @@ index c250a780..3db98f3e 100644
  #		add_compile_options(-Wpedantic)
  #		add_compile_options(-Wall)
  #		add_compile_options(-Wextra)
+@@ -50,7 +49,7 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+ 	endif()
+ 
+ 	if(NOT GLM_DISABLE_AUTO_DETECTION)
+-		add_compile_options(/Wall /WX)
++		add_compile_options(/Wall)
+ 		add_compile_options(/wd4464) # warning C4464: relative include path contains '..'
+ 		add_compile_options(/wd4514) # warning C4514: unreferenced inline function has been removed 
+ 		add_compile_options(/wd4365) # warning C4365: signed/unsigned mismatch 
